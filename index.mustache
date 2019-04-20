@@ -1,0 +1,27 @@
+{{> ../../partials/ru/header }}
+
+<section id="products" class="py-5">
+	<div class="container">
+		<h2 class="text-center">Products</h2>
+		<div class="row">
+			{{#en.products}}
+				<div class="col-md-4">
+					<div class="product-item">
+						<div style="background-image: url({{ image }})" class="product-item-image"></div>
+						<div class="product-item-info">
+							<div class="product-item-title">{{ title }}</div>
+							<div class="product-item-description">{{ description }}</div>
+							<div class="product-item-description"><b>Sorts:</b> {{ sorts }}</div>
+							<div class="product-item-description">{{ humidity }}</div>
+							<div class="product-item-description"><b>Sizes:</b> {{ sizes }}</div>
+						</div>
+					</div>
+				</div>
+			{{/en.products}}
+		</div>
+	</div>
+</section>
+
+<!-- some code -->
+
+{{> ../../partials/ru/footer }}

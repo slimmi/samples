@@ -1,0 +1,56 @@
+// Forms
+.mdc-button {
+	@include mdc-states-base-color(#fff);
+}
+
+.mdc-text-field,
+.mdc-select {
+	width: 100%;
+
+	&,
+	* {
+		box-sizing: content-box;
+	}
+}
+
+.mdc-text-field {
+	input[type="date"] + label,
+	input[type="time"] + label {
+		transform: translateY(-100%) scale(0.75) !important;
+	}
+}
+
+.mdc-radio {
+	@include mdc-radio-checked-stroke-color($mdc-theme-primary);
+	@include mdc-radio-ink-color($mdc-theme-primary);
+	@include mdc-radio-focus-indicator-color($mdc-theme-primary);
+	@include mdc-states($mdc-theme-primary);
+}
+
+.mdc-switch-container {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 16px 0;
+
+	.mdc-switch {
+		margin-right: 20px;
+	}
+}
+
+.mdc-switch {
+	@include mdc-switch-toggled-on-color($mdc-theme-primary);
+	@include mdc-switch-toggled-on-track-color($mdc-theme-primary);
+	@include mdc-switch-toggled-on-thumb-color($mdc-theme-primary);
+	@include mdc-switch-toggled-on-ripple-color($mdc-theme-primary);
+}
+
+// Fix selects' margins
+.mdc-select {
+	margin: 12px 0 8px;
+}
+
+// Footer
+.form__footer {
+	margin: 32px 0 0;
+}
