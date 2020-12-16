@@ -1,0 +1,74 @@
+// Catalog
+$catalog-colors: (
+  primary: $primary,
+  green: $green,
+  pink: $pink,
+  teal: $teal,
+);
+
+// Tile section
+.catalog-tile-name {
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+
+  a {
+    color: $dark;
+    display: inline-block;
+    text-decoration: none;
+    transition: color $transition-base-duration $transition-base-timing-function;
+
+    span {
+      border-bottom: 1px dashed $dark;
+      transition: border-bottom-color $transition-base-duration $transition-base-timing-function;
+    }
+
+    @include hover-focus {
+      span {
+        border-color: transparent;
+      }
+    }
+  }
+}
+
+// Catalog colors
+@each $name, $color in $catalog-colors {
+  .catalog-#{$name} {
+    .catalog-counter {
+      background: $color;
+    }
+
+    .catalog-tile-image,
+    &.catalog-section {
+      border-color: $color;
+    }
+
+    .catalog-tile-name a:hover,
+    .catalog-tile-name a:focus,
+    .catalog-section-header h2 {
+      color: $color;
+    }
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .catalog-tile-item-wrapper {
+    flex-basis: 50%;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .catalog-section {
+    padding: 80px 0;
+  }
+
+  .catalog-tile-item-wrapper {
+    flex-basis: 100%;
+  }
+
+  .catalog-tile-image {
+    margin-bottom: 20px;
+  }
+}
+
+// ...

@@ -1,0 +1,25 @@
+@function offset($offset, $return) {
+  @if $offset > 1 or $offset < 1 {
+    $return: calc(#{$return} * #{$offset});
+  }
+
+  @return $return;
+}
+
+@function column($columns) {
+  @return offset($columns, var(--grid-column));
+}
+
+@function row($rows) {
+  @return offset($rows, var(--grid-row));
+}
+
+@function transition($property, $duration: $transition-base-duration, $timing-function: $transition-base-timing-function, $delay: false) {
+  $return: $property $duration $timing-function;
+
+  @if $delay {
+    $return: $return $delay;
+  }
+
+  @return $return;
+}

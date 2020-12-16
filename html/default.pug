@@ -1,0 +1,31 @@
+block variables
+
+include ../../components/head/head
+include ../../components/icon/icon
+include ../../components/input/input
+include ../../components/header/header
+include ../../components/footer/footer
+include ../../components/navigation/navigation
+include ../../components/menu/menu
+include ../../components/slide-menu/slide-menu
+include ../../components/socials/socials
+include ../../components/theme-switcher/theme-switcher
+include ../../components/hamburger/hamburger
+include ../../components/promo-circle/promo-circle
+include ../../components/loader/loader
+include ../../components/navigator/navigator
+
+doctype html
+html(lang='ru')
+  head
+    +head(headData || head.defaults)
+    script(src='%=static=%js/main%=hash=%%=min=%.js')
+  body.page.page--light.loader--hide
+    | %=symbols=%
+    +loader()
+    .page__wrapper#wrapper.hide
+      +navigator()
+      +header()
+      #content
+        block content
+      +footer()

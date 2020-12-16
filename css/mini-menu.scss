@@ -1,0 +1,29 @@
+:root {
+  --mini-menu-color-default: #333;
+}
+
+.mini-menu {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: var(--mini-menu-bottom, 0);
+
+  &__item {
+    color: var(--mini-menu-color, var(--mini-menu-color-default));
+    margin-bottom: var(--mini-menu-space, 5px);
+    margin-right: var(--mini-menu-margin-right, 20px);
+    margin-top: var(--mini-menu-space, 5px);
+    text-decoration: var(--mini-menu-text-decoration, none);
+
+    &:hover {
+      color: var(--mini-menu-color, var(--mini-menu-color-default))
+    }
+
+    &:last-child {
+      --mini-menu-margin-right: 0;
+    }
+  }
+
+  &:last-child {
+    --mini-menu-bottom: 0;
+  }
+}

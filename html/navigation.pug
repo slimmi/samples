@@ -1,0 +1,22 @@
+mixin navigation(data)
+  nav.navigation
+    div(drawer-motion)
+      a.navigation__link.navigation__link--mobile(
+        href='/'
+      )
+        span Главная
+    div(drawer-motion)
+      a.navigation__link.navigation__link--active(
+        href='/portfolio.html'
+      )
+        span Портфолио
+    div(drawer-motion)
+      a.navigation__link(
+        href='/about.html'
+      )
+        span О нас
+    div(drawer-motion)
+      a.navigation__link(
+        href='/contact.html'
+      )
+        span Контакты
