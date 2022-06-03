@@ -11,10 +11,10 @@ export class DragDropDirective {
   @HostBinding('class.input--drag-drop')
   public isActive = false;
 
-  constructor() {
-  }
+  constructor() {}
 
-  @HostListener('dragover', ['$event']) onDragOver(event) {
+  @HostListener('dragover', ['$event'])
+  public onDragOver(event): void {
     event.preventDefault();
     event.stopPropagation();
 
@@ -22,14 +22,14 @@ export class DragDropDirective {
   }
 
   @HostListener('dragleave', ['$event'])
-  public onDragLeave(event) {
+  public onDragLeave(event): void {
     event.preventDefault();
     event.stopPropagation();
     this.isActive = false;
   }
 
   @HostListener('drop', ['$event'])
-  public onDrop(event) {
+  public onDrop(event): void {
     event.preventDefault();
     event.stopPropagation();
 

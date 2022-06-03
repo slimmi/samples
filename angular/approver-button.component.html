@@ -1,0 +1,25 @@
+<button
+    *ngIf="quote && approvers; else loading"
+    class="slds-button dq-approver-button"
+    [class.dq-approver-button_success]="!isApprovalRequired"
+    [class.dq-approver-button_destructive]="isApprovalRequired"
+    (click)="openApproversModal()"
+>
+  <span class="slds-truncate">
+    <ng-container *ngIf="isApprovalRequired">
+      {{ approverName }}
+    </ng-container>
+    <ng-container *ngIf="!isApprovalRequired">
+      No Approval Required
+    </ng-container>
+  </span>
+</button>
+
+<ng-template #loading>
+  <span class="placeholder-loading"></span>
+</ng-template>
+
+<dq-approver-modal
+    [approvers]="approvers"
+    [(isOpen)]="isApproversOpen"
+></dq-approver-modal>
