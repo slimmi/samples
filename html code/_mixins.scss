@@ -1,25 +1,28 @@
-@function offset($offset, $return) {
-  @if $offset > 1 or $offset < 1 {
-    $return: calc(#{$return} * #{$offset});
+@use 'sass:list';
+
+$transition-easing: linear !default;
+$transition-duration: 0.25s !default;
+
+@mixin transition($properties...) {
+  $transitions: null;
+
+  @if length($properties) > 0 {
+    @each $property in $properties {
+      @if $property == null or $property == none {
+        @warn "transition #{$property}: 'none' or 'null' must be used as a single argument.";
+      } @else {
+        $transitions: list.append($transitions, transition-property($property), $separator: comma);
+      }
+    }
+  } @else {
+    $transitions: transition-property(all);
   }
 
-  @return $return;
-}
-
-@function column($columns) {
-  @return offset($columns, var(--grid-column));
-}
-
-@function row($rows) {
-  @return offset($rows, var(--grid-row));
-}
-
-@function transition($property, $duration: $transition-base-duration, $timing-function: $transition-base-timing-function, $delay: false) {
-  $return: $property $duration $timing-function;
-
-  @if $delay {
-    $return: $return $delay;
+  @if length($transitions) > 0 {
+    transition: $transitions;
   }
+}
 
-  @return $return;
+@function transition-property($property) {
+  @return $property $transition-easing $transition-duration;
 }

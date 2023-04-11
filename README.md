@@ -1,2 +1,2 @@
 # Code samples
-There is some code from my real projects in this repository.
+There is some code samples from my projects in this repository.
